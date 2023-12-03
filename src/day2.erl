@@ -30,7 +30,7 @@ power(Game) ->
                                 Max = max(maps:get(Color, Acc, 0), N),
                                 Acc#{Color => Max}
                         end, #{}, Game),
-    lists:foldl(fun erlang:'*'/2, 1, maps:values(Maxes)).
+    aoc:product(maps:values(Maxes)).
 
 -include_lib("eunit/include/eunit.hrl").
 solve_test_() ->

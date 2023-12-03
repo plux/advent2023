@@ -50,3 +50,5 @@
         Res ->
             Res
     end).
+
+-define(is_digit(C), C >= $0, C =< $9).

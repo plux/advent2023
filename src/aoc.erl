@@ -57,6 +57,7 @@ draw_grid(L) when is_list(L) ->
 draw_grid(Grid) ->
     Xs = [X || {X, _} <- maps:keys(Grid)],
     Ys = [Y || {_, Y} <- maps:keys(Grid)],
+    io:format("\n"),
     draw_grid(Grid,
               {lists:min(Xs), lists:min(Ys)},
               {lists:max(Xs), lists:max(Ys)}).
