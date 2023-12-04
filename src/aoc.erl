@@ -33,7 +33,7 @@ is_float(X) ->
 %% Splitting -----------------------------------------------------------
 -spec words(str()) -> [str()].
 words(L) ->
-    string:lexemes(L, ", \t\n").
+    string:lexemes(L, ":, \t\n").
 
 -spec lines(str()) -> [str()].
 lines(L) ->
