@@ -3,7 +3,7 @@
 -include("aoc.hrl").
 
 solve(Input) ->
-   {part1(?lines(Input)), part2(?lines(Input))}.
+    {part1(?lines(Input)), part2(?lines(Input))}.
 
 part1(Input) ->
     ?v(length(Input)).
