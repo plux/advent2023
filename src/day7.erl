@@ -30,13 +30,13 @@ lt_hand({A, _, _}, {B, _, _}) ->
 hand_kind(Hand) ->
     Count = counter:count(Hand),
     case counter:most_common(Count, maps:size(Count)) of
-        [{_, 5}]        -> 7;
-        [{_, 4}|_]      -> 6;
-        [{_, 3}|{_, 2}] -> 5;
-        [{_, 3}|_]      -> 4;
-        [{_, 2}|{_, 2}] -> 3;
-        [{_, 2}|_]      -> 2;
-        _               -> 1
+        [{_, 5}]           -> 7;
+        [{_, 4}|_]         -> 6;
+        [{_, 3}, {_, 2}]   -> 5;
+        [{_, 3}|_]         -> 4;
+        [{_, 2}, {_, 2}|_] -> 3;
+        [{_, 2}|_]         -> 2;
+        [{_, 1}|_]         -> 1
     end.
 
 val(X) ->
@@ -59,5 +59,5 @@ val(X) ->
 -include_lib("eunit/include/eunit.hrl").
 solve_test_() ->
     [ ?_assertEqual({6440, x}, ?solve_ex(1))
-    %% , ?_assertEqual({1, x}, ?solve())
+    , ?_assertEqual({254024898, x}, ?solve())
     ].
