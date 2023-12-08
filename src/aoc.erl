@@ -184,6 +184,19 @@ find_index(Pred, [H|T], N) ->
 product(L) ->
     lists:foldl(fun erlang:'*'/2, 1, L).
 
+gcd(A, B) when B > A ->
+    gcd(B, A);
+gcd(A, B) when A rem B > 0 ->
+    gcd(B, A rem B);
+gcd(A, B) when A rem B =:= 0 ->
+    B.
+
+lcm(L) ->
+    lists:foldl(fun(A, B) -> lcm(A, B) end, hd(L), tl(L)).
+
+lcm(A, B) ->
+    (A * B) div gcd(A, B).
+
 %% Solve ---------------------------------------------------------------
 solve(Mod) when is_atom(Mod) ->
     {ok, Input} = file:read_file("input/" ++ atom_to_list(Mod) ++ ".txt"),
